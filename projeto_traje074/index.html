@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traje 074 | Catálogo Oficial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #0d0d0d; --glass: rgba(255, 255, 255, 0.05); --border: rgba(255, 255, 255, 0.1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        
+        body { 
+            background: #000;
+            color: #fff; font-family: 'Inter', sans-serif; scroll-behavior: smooth;
+            min-height: 100vh;
+        }
+
+        /* FUNDO DA LOJA MAIS VISÍVEL (PRODUTO 29) */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('produto29.jpg') center/cover;
+            filter: brightness(0.25) blur(4px); /* Menos desfoque, mais nitidez */
+            z-index: -1;
+        }
+
+        header { padding: 60px 20px; text-align: center; }
+        
+        .brand-box { display: inline-block; position: relative; text-align: right; }
+        .logo-main { font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 10vw, 4rem); line-height: 0.9; letter-spacing: 2px; display: block; }
+        .logo-sub { font-family: 'Orbitron', sans-serif; font-size: clamp(2rem, 8vw, 3.5rem); line-height: 0.9; display: block; margin-right: 5px; }
+
+        .crown-svg { position: absolute; top: -15px; right: -25px; width: 45px; height: auto; transform: rotate(15deg); }
+
+        .tagline { font-size: 0.5rem; letter-spacing: 6px; color: #aaa; margin-top: 15px; text-transform: uppercase; font-weight: 900; }
+        .info-bar { margin-top: 20px; font-size: 0.55rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+
+        nav { position: sticky; top: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); padding: 15px 0; display: flex; justify-content: center; gap: 15px; z-index: 100; border-bottom: 1px solid var(--border); overflow-x: auto; }
+        nav a { color: #888; text-decoration: none; font-size: 0.55rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        nav a:hover { color: #fff; }
+
+        main { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .section-header { margin: 40px 0 20px; display: flex; align-items: center; gap: 10px; }
+        .section-header h2 { font-size: 0.7rem; letter-spacing: 3px; color: #fff; text-transform: uppercase; font-weight: 900; }
+        .line { flex-grow: 1; height: 1px; background: rgba(255,255,255,0.1); }
+
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        @media (min-width: 768px) { .grid { grid-template-columns: repeat(4, 1fr); gap: 20px; } }
+
+        .card { background: var(--glass); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; position: relative; transition: 0.3s; backdrop-filter: blur(5px); }
+        .img-box { width: 100%; aspect-ratio: 3/4; overflow: hidden; position: relative; background: #111; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .card:hover img { transform: scale(1.05); filter: brightness(0.5); }
+
+        .overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; }
+        .card:hover .overlay { opacity: 1; }
+        .btn-consultar { background: #fff; color: #000; padding: 10px 20px; text-decoration: none; font-size: 0.55rem; font-weight: 900; text-transform: uppercase; border-radius: 2px; }
+
+        footer { padding: 80px 0; text-align: center; color: #444; font-size: 0.5rem; letter-spacing: 10px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-box">
+            <svg class="crown-svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 18L3 7L9 12L12 4L15 12L21 7L22 18H2Z" />
+            </svg>
+            <span class="logo-main">TRAJE</span>
+            <span class="logo-sub">074</span>
+        </div>
+        <div class="tagline">Moda Masculina</div>
+        <div class="info-bar">
+            <p>📍 Rua 4 pedrinhas, 190 | Xique-Xique - BA</p>
+            <p>📲 74 98138-8714 | ✈️ Enviamos para todo Brasil</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#camisas">Camisas</a>
+        <a href="#bermudas">Bermudas</a>
+        <a href="#bones">Bonés</a>
+        <a href="#kits">Kits</a>
+        <a href="#tenis">Tênis</a>
+        <a href="#chinelos">Chinelos</a>
+        <a href="#acessorios">Acessórios</a>
+    </nav>
+
+    <main>
+        <section id="camisas"><div class="section-header"><h2>Camisas</h2><div class="line"></div></div><div class="grid" id="grid-camisas"></div></section>
+        <section id="bermudas"><div class="section-header"><h2>Bermudas</h2><div class="line"></div></div><div class="grid" id="grid-bermudas"></div></section>
+        <section id="bones"><div class="section-header"><h2>Bonés</h2><div class="line"></div></div><div class="grid" id="grid-bones"></div></section>
+        <section id="kits"><div class="section-header"><h2>Kits</h2><div class="line"></div></div><div class="grid" id="grid-kits"></div></section>
+        <section id="tenis"><div class="section-header"><h2>Tênis</h2><div class="line"></div></div><div class="grid" id="grid-tenis"></div></section>
+        <section id="chinelos"><div class="section-header"><h2>Chinelos</h2><div class="line"></div></div><div class="grid" id="grid-chinelos"></div></section>
+        <section id="acessorios"><div class="section-header"><h2>Acessórios</h2><div class="line"></div></div><div class="grid" id="grid-acessorios"></div></section>
+    </main>
+
+    <footer>TRAJE 074 • 2026</footer>
+
+    <script>
+        function criarCard(num, gridId) {
+            const grid = document.getElementById(gridId);
+            const imgTeste = new Image();
+            imgTeste.src = `produto${num}.jpg`;
+
+            imgTeste.onload = function() {
+                grid.innerHTML += `
+                    <div class="card">
+                        <div class="img-box">
+                            <img src="produto${num}.jpg" loading="lazy">
+                            <div class="overlay">
+                                <a href="https://wa.me/5574981388714?text=Olá,%20vi%20o%20item%20${num}%20no%20catálogo" class="btn-consultar" target="_blank">Consultar</a>
+                            </div>
+                        </div>
+                    </div>`;
+            };
+        }
+
+        // --- ORGANIZAÇÃO RÍGIDA POR CATEGORIA ---
+
+        // CAMISAS: 11, 12, 14, 15, 16, 17, 20 + Vagas (40-60)
+        [11,12,14,15,16,17,20].forEach(n => criarCard(n, 'grid-camisas'));
+        for(let i=40; i<=60; i++) { criarCard(i, 'grid-camisas'); }
+
+        // BERMUDAS: 1, 2, 3, 4, 5 + Vagas (70-90)
+        [1,2,3,4,5].forEach(n => criarCard(n, 'grid-bermudas'));
+        for(let i=70; i<=90; i++) { criarCard(i, 'grid-bermudas'); }
+
+        // BONÉS: 6, 7, 8, 9, 10 + Vagas (100-110)
+        [6,7,8,9,10].forEach(n => criarCard(n, 'grid-bones'));
+        for(let i=100; i<=110; i++) { criarCard(i, 'grid-bones'); }
+
+        // KITS: 21, 22, 23, 24, 25, 26, 27, 28 + Vagas (120-140)
+        [21,22,23,24,25,26,27,28].forEach(n => criarCard(n, 'grid-kits'));
+        for(let i=120; i<=140; i++) { criarCard(i, 'grid-kits'); }
+
+        // TÊNIS: 37, 33, 32 + Vagas (150-160)
+        [37,33,32].forEach(n => criarCard(n, 'grid-tenis'));
+        for(let i=150; i<=160; i++) { criarCard(i, 'grid-tenis'); }
+
+        // CHINELOS: 34, 35, 38 + Vagas (170-180)
+        [34,35,38].forEach(n => criarCard(n, 'grid-chinelos'));
+        for(let i=170; i<=180; i++) { criarCard(i, 'grid-chinelos'); }
+
+        // ACESSÓRIOS (PRATA): 30, 31, 36 + Vagas (190-200)
+        [30,31,36].forEach(n => criarCard(n, 'grid-acessorios'));
+        for(let i=190; i<=200; i++) { criarCard(i, 'grid-acessorios'); }
+
+    </script>
+</body>
+</html>
